@@ -1,0 +1,106 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    width: 100%;
+}
+
+body {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div#app {
+    background-color: #aaaaaa;
+    display: table;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 7px double #cccccc;
+}
+
+div.row {
+    display: table-row;
+}
+
+div.cell {
+    display: table-cell;
+}
+
+button.tile {
+    width: 32px;
+    height: 32px;
+    margin: 1px;
+    padding: 0px;
+    color: transparent;
+    /* debug mode */
+    /* color: #cccccc; */
+    background-color: #dddddd;
+    font-weight: bold;
+    font-size: 16pt;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+button:active {
+    background-color: white;
+}
+
+button.tile.clicked {
+    background-color: #bbbbbb;
+    color: blue;
+    border: 1px solid transparent;
+}
+
+button.tile.flagged {
+    color: red;
+    background-color: #dddddd;
+}
+
+button.tile.mine.show.flagged {
+    color: green;
+}
+
+button.tile.clicked.mines-0 {
+    color: transparent;
+}
+
+button.tile.mine.show {
+    color: black;
+}
+
+button.tile.clicked.mine {
+    background-color: red;
+    color: black;
+}
+
+button.tile.clicked.mines-2 {
+    color: green;
+}
+
+button.tile.clicked.mines-3 {
+    color: red;
+}
+
+button.tile.clicked.mines-4plus {
+    color: purple;
+}
+
+button.flagged {
+    color: black;
+}
+
+div#msg {
+    padding: 1rem;
+    font-size: 170%;
+}
+
+span.numberdisplay {
+    background-color: black;
+    color: red;
+    width: 80%;
+    display: inline-block;
+}

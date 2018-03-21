@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Minesvueeper - Minesweeper game using Vue.js</title>
+    <link rel="stylesheet" href="./minesvueeper.css"/>
+  </head>
+  
+  <body>
+    
+    <div id="main">
+      <h1>Minesvueeper</h1>
+      <div id="app">
+        
+        <div class="row">
+          <div style="display: table; width: 100%;">
+            <div class="row" style="background-color: #aaaaaa; width: 100%; font-size: 200%;">
+              
+              <div class="cell" style="width: 33%;">
+                <span class="numberdisplay">
+                  &#8987;&nbsp;&nbsp;<span v-html="seconds" style="width: 3rem; display: inline-block;"></span>
+                </span>
+              </div>
+              <div class="cell" style="width: 33%"><button onclick="location.reload()" style="vertical-align: middle; font-size: 150%;"><span v-html="smiley"></span></button></div>
+              <div class="cell" style="width: 33%;">
+                <span class="numberdisplay">
+                  &#10041;&nbsp;&nbsp;<span v-html="unflaggedmines" style="width: 2rem; display: inline-block;"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row" v-for="row in grid">
+          <button class="tile" v-for="tile in row"
+                  v-on:click="click(tile)"
+                  v-on:contextmenu.prevent="rightClick(tile);"
+                  v-bind:class="{'mine': tile.mine, 'clicked': tile.clicked, 'flagged': tile.flagged, 'show': tile.show, 'mines-0': tile.mines == 0, 'mines-1': tile.mines == 1, 'mines-2': tile.mines == 2, 'mines-3': tile.mines == 3, 'mines-4plus': tile.mines > 3 }"
+                  :disabled="tile.disabled == 1 ? true : false">
+            <span v-html="tile.label"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="./minesvueeper.js"></script>
+    
+  </body>
+  
+</html>
